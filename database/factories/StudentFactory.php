@@ -29,7 +29,7 @@ class StudentFactory extends Factory
                 ->dateTimeBetween('-25 years', '-17 years')
                 ->format('Y-m-d'),
 
-            'Year_level' => fake()->numberBetween(1, 4),
+            'year_level' => fake()->numberBetween(1, 4),
         ];
     }
 }

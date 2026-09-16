@@ -7,29 +7,28 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Student extends Model
 {
-     use HasFactory;
+    use HasFactory;
 
-     Protected $Fillable = [
-        'First_name',
+    protected $fillable = [
+        'first_name',
         'last_name',
         'email',
         'program',
         'gender',
-        'birthda',
-        'yr_level'
-     ];
+        'birthday',
+        'year_level',
+    ];
 
-     protected $casts = [
-    'birthday' => 'date',
+    protected $casts = [
+        'birthday' => 'date',
+    ];
 
-     ];
     protected $appends = [
-    'age'
-
+        'age',
     ];
 
     public function getAgeAttribute()
-   {
-    return $this->birthday->age;
- }
+    {
+        return $this->birthday ? $this->birthday->age : null;
+    }
 }
